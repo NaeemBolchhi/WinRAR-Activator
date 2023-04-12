@@ -4,7 +4,7 @@ setlocal EnableDelayedExpansion
 :: Auto elevation code taken from the following answer-
 :: https://stackoverflow.com/a/28467343/14312937
 
-::net file to test privileges, 1>NUL redirects output, 2>NUL redirects errors
+:: net file to test privileges, 1>NUL redirects output, 2>NUL redirects errors
 NET FILE 1>NUL 2>NUL
 if '%errorlevel%' == '0' ( goto START ) else ( goto getPrivileges ) 
 
@@ -14,14 +14,14 @@ if '%1'=='ELEV' ( goto START )
 set "batchPath=%~f0"
 set "batchArgs=ELEV"
 
-::Add quotes to the batch path, if needed
+:: Add quotes to the batch path, if needed
 set "script=%0"
 set script=%script:"=%
 IF '%0'=='!script!' ( GOTO PathQuotesDone )
     set "batchPath=""%batchPath%"""
 :PathQuotesDone
 
-::Add quotes to the arguments, if needed
+:: Add quotes to the arguments, if needed
 :ArgLoop
 IF '%1'=='' ( GOTO EndArgLoop ) else ( GOTO AddArg )
     :AddArg
@@ -37,18 +37,18 @@ IF '%1'=='' ( GOTO EndArgLoop ) else ( GOTO AddArg )
     GOTO ArgLoop
 :EndArgLoop
 
-::Create and run the vb script to elevate the batch file
+:: Create and run the vb script to elevate the batch file
 ECHO Set UAC = CreateObject^("Shell.Application"^) > "%temp%\OEgetPrivileges.vbs"
 ECHO UAC.ShellExecute "cmd", "/c ""!batchPath! !batchArgs!""", "", "runas", 1 >> "%temp%\OEgetPrivileges.vbs"
 "%temp%\OEgetPrivileges.vbs" 
 exit /B
 
 :START
-::Remove the elevation tag and set the correct working directory
+:: Remove the elevation tag and set the correct working directory
 IF '%1'=='ELEV' ( shift /1 )
 cd /d %~dp0
 
-::Main script here
+:: Main script here
 
 set "_onetitle=WinRAR Activator v0.01"
 
@@ -79,7 +79,7 @@ echo:
 call :PAUSEWAIT
 echo:
 echo ^- This script will now end.
-call :FINISH
+goto FINISH
 
 :RARBIT
 echo ^- Determining WinRAR location...
@@ -91,7 +91,7 @@ if "%rarbit%" EQU "unknown" (
   echo ^- WinRAR was not found in the default directories.
   echo:
   pause
-  call :FINISH
+  goto FINISH
 ) else (
   echo ^- WinRAR was found in "%rarbit%".
 )
@@ -122,17 +122,17 @@ exit /b
 echo ^- Registering your copy of WinRAR.
 (
   echo RAR registration data
-  echo WinRAR
-  echo Unlimited Company License
-  echo UID=4b914fb772c8376bf571
-  echo 6412212250f5711ad072cf351cfa39e2851192daf8a362681bbb1d
-  echo cd48da1d14d995f0bbf960fce6cb5ffde62890079861be57638717
-  echo 7131ced835ed65cc743d9777f2ea71a8e32c7e593cf66794343565
-  echo b41bcf56929486b8bcdac33d50ecf773996052598f1f556defffbd
-  echo 982fbe71e93df6b6346c37a3890f3c7edc65d7f5455470d13d1190
-  echo 6e6fb824bcf25f155547b5fc41901ad58c0992f570be1cf5608ba9
-  echo aef69d48c864bcd72d15163897773d314187f6a9af350808719796
-  echo ----------------------------------------------------------------------------------------------------------
+  echo Hououin Kyouma
+  echo El Psy Congroo
+  echo UID=c881245b7b1a78985cb0
+  echo 64122122505cb05c44e75618ab5ea84c86e876e620d42d566d4453
+  echo 18f59893063b0c337398603ef609acfb0eac3505bc19e61df2b7f5
+  echo bba0aeef9172868794c0d6b2314c038d105f9b3ba638ec8a82305b
+  echo a209c087680d071cbbdbb10a9652f8c2b06091a5243fbbc24b381d
+  echo 4cb3b58c52c3d7d99b828c76f88937dd4d94058fb3038d105f9b3b
+  echo a638ec8aa57606488b324a1e71be06e54787b797df438679604ee6
+  echo 92b1f552734e6580bee03078379b0cdddee16bb6f4a53644961125
+  echo ------------------------------------------------------
 ) > "%rarbit%\rarreg.key"
 exit /b
 
