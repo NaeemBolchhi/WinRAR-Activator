@@ -22,7 +22,7 @@
 
 Right-click on the windows start menu and select PowerShell or Terminal.
 
-Copy-paste the below code and press enter:
+Copy-paste the code below and press enter:
 
     iwr -useb https://naeembolchhi.github.io/WinRAR-Activator/WRA.ps1 | iex
 
