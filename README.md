@@ -70,7 +70,7 @@ That's all.
 
    - Make sure the latest original WinRAR setup is used for the installation.
      
-     - Download WinRAR: https://www.rarlab.com/download.htm
+     - Download WinRAR: [https://www.rarlab.com/download.htm](https://www.rarlab.com/download.htm)
 
    - Now install WinRAR and wait for the script to finish.
    
@@ -84,5 +84,6 @@ That's all.
 
 | **Dev** | **Contribution** |
 |---|---|
-| @lstprjct | Shared the license key used in this script. |
+| @bitcookies | Keygen for generating WinRAR licenses. |
+| | https://github.com/bitcookies/winrar-keygen |
 | @NaeemBolchhi \(Me\) | Made a batch script for automatic activation, and a one-liner for ease of use. |
