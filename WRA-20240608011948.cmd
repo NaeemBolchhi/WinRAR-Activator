@@ -50,7 +50,7 @@ cd /d %~dp0
 
 :: Main script here
 
-set "_onetitle=WinRAR Activator v0.01"
+set "_onetitle=WinRAR Activator v0.02"
 
 cls
 mode 76, 30
@@ -78,6 +78,7 @@ call :INITIATE
 echo:
 call :PAUSEWAIT
 echo:
+taskkill /f /im WinRAR.exe /t
 echo ^- This script will now end.
 goto FINISH
 
@@ -87,6 +88,7 @@ echo:
 set "rarbit=unknown"
 if exist "%SystemDrive%\Program Files (x86)\WinRAR\WinRAR.exe" set "rarbit=%SystemDrive%\Program Files (x86)\WinRAR"
 if exist "%SystemDrive%\Program Files\WinRAR\WinRAR.exe" set "rarbit=%SystemDrive%\Program Files\WinRAR"
+if exist "%SystemDrive%\Users\%username%\scoop\apps\winrar\current\WinRAR.exe" set "rarbit=%SystemDrive%\Users\%username%\scoop\apps\winrar\current"
 if "%rarbit%" EQU "unknown" (
   echo ^- WinRAR was not found in the default directories.
   echo:

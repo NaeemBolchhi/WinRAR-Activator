@@ -1,7 +1,7 @@
 # Enable TLSv1.2 for compatibility with older clients
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor [System.Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://naeembolchhi.github.io/WinRAR-Activator/WRA-20230312191859.cmd'
+$DownloadURL = 'https://naeembolchhi.github.io/WinRAR-Activator/WRA-20240608011948.cmd'
 
 $FilePath = "$env:TEMP\WRA.cmd"
 
